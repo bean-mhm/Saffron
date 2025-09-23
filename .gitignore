@@ -1,0 +1,7 @@
+/build/**
+/.vs/**
+/.vscode/**
+/.cache/**
+/stuff/**
+
+*.blend1
