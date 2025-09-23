@@ -7,5 +7,7 @@
 - ### Photo Editing
 - ### Color Grading
 - ### Masking
-- ### Color Space Conversions: Linear, Displays, Cameras, and ACES.
-- ### View Transforms (AKA Tone Mapping): [flim](https://github.com/bean-mhm/flim), Khronos PBR Neutral, ACES, and more.
+- ### Color Space Conversions: Linear, Displays, Cameras, ACES, Oklab.
+- ### View Transforms (Tone Mapping): [flim](https://github.com/bean-mhm/flim), Khronos PBR Neutral, ACES, and more.
+- ### Advanced Techniques like Gamut Compression & Highlight Reconstruction
+- ### And More!
