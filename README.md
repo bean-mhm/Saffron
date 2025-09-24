@@ -28,17 +28,17 @@ got you covered!
 
 This node uses Blender's built-in Denoise node at the high quality preset but when mixing, it gives more weight to darker pixels since, in digital cameras, darker pixels contain a lot more noise than the midtones, and highlights are usually very clean.
 
-## Node: Saffron Grade
+## Saffron Grade
 
 This node is all about color grading. It uses the [Oklab](https://bottosson.github.io/posts/oklab/) color space as its processing space to provide a perceptually uniform and intuitive parameter space. It uses custom-made algorithms to alter the tone and color of
 the image.
 
-## Node: Color Zone
+## Color Zone
 
 With this node you can isolate a certain hue range (for example, only the greens
 to select the grass) and adjust the color tone of that part.
 
-## Node: Saffron Effects
+## Saffron Effects
 
 This node provides artistic image editing effects including
 **Texture & Clarity**, **Vignette**, **Halation**, and **Film Grain**. It too
@@ -178,10 +178,45 @@ simply have **Linear X -> Display X** and vice versa.
 
 ## They Tell You What They Want
 
-Pay attention to the input sockets in nodes. Some inputs are named **In (RGB)**,
+Pay attention to the input sockets. Some inputs are named **In (RGB)**,
 this means they expect the input to be in a linear RGB color space. **In (Ref)**
 means the input must be in the reference color space, and so forth. The same
 is true for output sockets (e.g. **Out (Oklab)** means the output is in Oklab).
+
+## What If...
+
+What if you need a conversion for a color space that's not supported by Saffron?
+Don't worry, you can use Blender's **Convert Colorspace** node in the compositor
+the same way you use Saffron's conversion nodes... as long as there's at least
+one common color space that exists in both Saffron and Blender's OpenColorIO
+config (or your custom config that you use in Blender).
+
+# Adding Saffron
+
+To use Saffron in your own Blender file,
+
+1. Go to **File > Append**.
+
+2. Find Saffron's `.blend` file and double click on it.
+
+3. Double click on **Scene**.
+
+4. Double click on **Saffron Compositor Nodes**.
+
+5. In the top right corner, change the current scene to **Saffron Compositor Nodes**.
+
+6. Go to the **Compositing** tab / workspace.
+
+7. Box select Saffron's nodes and hit Ctrl+C to copy them.
+
+8. Change back the current scene.
+
+9. Check "Use Nodes" if you haven't already.
+
+10. Hit Ctrl+V to paste Saffron's nodes.
+
+It's a lengthy process, I admit. If you know of a better way, create an issue to
+tell me about it.
 
 # Contribution
 
