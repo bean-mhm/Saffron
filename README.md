@@ -60,10 +60,18 @@ This node is all about color grading. It uses the [Oklab](https://bottosson.gith
 the image. You can adjust the entire image globally or grade shadows, midtones,
 and highlights individually.
 
+![screenshot](./images/saffron-grade-before.webp)
+![screenshot](./images/saffron-grade-after.webp)
+![screenshot](./images/saffron-grade.png)
+
 ## Color Zone
 
-With this node you can isolate a certain hue range (for example, only the greens
-to select the grass) and adjust the color tone of that part.
+With this node you can isolate a certain hue range (for example, only the blues
+to select the sky) and adjust the tone of that part.
+
+![screenshot](./images/color-zone-before.webp)
+![screenshot](./images/color-zone-after.webp)
+![screenshot](./images/color-zone.webp)
 
 ## Saffron Effects
 
@@ -72,12 +80,18 @@ This node provides artistic image editing effects including
 uses [Oklab](https://bottosson.github.io/posts/oklab/) as its processing space
 and is made of custom-made algorithms.
 
+![screenshot](./images/saffron-effects-before.webp)
+![screenshot](./images/saffron-effects-after.webp)
+![screenshot](./images/saffron-effects.jpg)
+
 # Black & White
 
 ![Nodes](./images/nodes-bw.webp)
 
 These nodes let you convert an RGB color to a grayscale value using different
 methods.
+
+![screenshot](./images/bw.webp)
 
 # Masking
 
@@ -299,12 +313,8 @@ ready to be graded.
 
 ![screenshot](./images/add-view-transform.jpg)
 
-From here, you're on your own. Try all the different nodes Saffron provides.
+13. From here, you're on your own. Try all the different nodes Saffron provides.
 Make some pretty art!
-
-> [!NOTE]
-> I admit this is a lengthy process. If you know of a better way, please create
-> an issue to tell me about it.
 
 # Contribution
 
@@ -317,3 +327,12 @@ I made Saffron free and open-source because knowledge shouldn't be behind a
 pay wall and I understand that not everyone can afford to pay tens of dollars
 for a simple node pack. However, if you think the project is deserving, feel free to support me at [Ko-fi](https://ko-fi.com/bean_mhm). Your
 support is hugely appreciated!
+
+# Useful Links
+
+- [CG Cinematography - Christophe Brejon](https://chrisbrejon.com/cg-cinematography/)
+- [The Hitchhiker's Guide to Digital Colour - Troy Sobotka](https://hg2dc.com/)
+- [RealBloom, Physically Accurate Bloom Simulation - Me](https://github.com/bean-mhm/realbloom)
+- [Test Image Collection 1 - Troy Sobotka](https://github.com/sobotka/Testing_Imagery)
+- [Test Image Collection 2 - Troy Sobotka](https://github.com/sobotka/images)
+- [PolyHaven, HDRIs](https://polyhaven.com/hdris)
