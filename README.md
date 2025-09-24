@@ -33,6 +33,18 @@ This node uses Blender's built-in Denoise node at the high quality preset but wh
 This node is all about color grading. It uses the [Oklab](https://bottosson.github.io/posts/oklab/) color space as its processing space to provide a perceptually uniform and intuitive parameter space. It uses custom-made algorithms to alter the tone and color of
 the image.
 
+## Node: Color Zone
+
+With this node you can isolate a certain hue range (for example, only the greens
+to select the grass) and adjust the color tone of that part.
+
+## Node: Saffron Effects
+
+This node provides artistic image editing effects including
+**Texture & Clarity**, **Vignette**, **Halation**, and **Film Grain**. It too
+uses [Oklab](https://bottosson.github.io/posts/oklab/) as its processing space
+and is made of custom-made algorithms.
+
 # Black & White
 
 ![Nodes](./images/nodes-bw.webp)
@@ -64,13 +76,13 @@ techniques. Feel free to experiment with them.
 ![Nodes](./images/nodes-color-space-convs.webp)
 
 These nodes let you convert between different color spaces. A more detailed
-explanation is provided below in the [How To Use](#how-to-use-important) section.
+explanation is provided below.
 
-# How To Use (IMPORTANT)
+# Color Management (IMPORTANT)
 
 > [!IMPORTANT]
 > Humans are naturally lazy to read long pieces of text (including myself), but
-> if you want to be able to use Saffron without glitches and weird results, you
+> if you want to use Saffron without broken results, you
 > need to read and understand the following instructions.
 
 In order to use Saffron, we need to disable Blender's color management system
@@ -89,13 +101,13 @@ because Saffron has its own. To do this,
 
 3. When exporting images, in the save dialog window, make sure to set
 **Color Management** to *Override* and **Color Space** to *Non-Color* or
-*Generic Data*
+*Generic Data*.
 
 Since we've disabled Blender's color management, we need to do it ourselves.
 This has three parts:
 1. Loading images
 2. The working color space
-3. Display/View transforms.
+3. Display/View transforms
 
 To put it simply:
 
@@ -107,8 +119,8 @@ color space to the working color space.
 3. Optionally apply a **View Transform** (so-called "Tone Mapping") to make sure
 your colors are not exceeding 100% brightness level which introduces
 overexposed/clipped areas in bright spots. A good option is
-[flim](https://github.com/bean-mhm/flim) which is filmic color transform I've
-made. Saffron has an implementation for flim which you can find in the
+[flim](https://github.com/bean-mhm/flim) which is a filmic color transform I've
+made. Saffron has an implementation for flim in the
 **Color Space Conversions: View Transforms** section.
 
 > [!NOTE]
@@ -144,6 +156,32 @@ Then, we apply a blur effect in the wokring space.
 Finally, we need to convert to our display's color space. For example, if we
 were using an sRGB display device, we would use the
 **Linear BT.709 I-D65 -> sRGB** node.
+
+## The Reference Space
+
+If we made a node to convert between every combination of color spaces, we would
+have hundreds of nodes! To work around this, we choose a
+**reference color space** and implement conversions to and from that space.
+For example, Saffron has **Ref -> X** and **Ref <- X** (notice the arrow
+directions).
+
+With this system, if we want to convert from a color space A to
+a color space B, we simply convert from A to the reference and then from the
+reference to B. Saffron uses **Linear CIE-XYZ I-D65** as its reference color
+space.
+
+Note that **View Transforms** are one-sided and they expect the input to be in a
+linear RGB color space. Also, since **Display Transforms** are typically based
+on a single linear color space (you wouldn't normally convert from Linear BT.709
+to Display P3, for example), we don't use the reference space for them and
+simply have **Linear X -> Display X** and vice versa.
+
+## They Tell You What They Want
+
+Pay attention to the input sockets in nodes. Some inputs are named **In (RGB)**,
+this means they expect the input to be in a linear RGB color space. **In (Ref)**
+means the input must be in the reference color space, and so forth. The same
+is true for output sockets (e.g. **Out (Oklab)** means the output is in Oklab).
 
 # Contribution
 
