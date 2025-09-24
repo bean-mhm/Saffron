@@ -145,13 +145,13 @@ color space. Linear image formats like OpenEXR on the other hand, usually use
 or **Linear BT.2020**, all of which are supported by Saffron.
 
 > [!NOTE]
-> If you're advanced enough to use OpenEXR, you will almost surely know what color space your image is in. If not, load the image again and pay attention to the **Color Space** property of the **Image** node because Blender will try to guess the color space which is correct most of the time. Take note of the color space, then set it to *Non-Color* and use Saffron's color space conversion nodes to convert from that color space to your working space.
+> If you're advanced enough to use OpenEXR, you will almost surely know what color space your image is in. If not, load the image again and pay attention to the **Color Space** property of the **Image** node because Blender will try to guess the color space, which is correct most of the time. Take note of the color space, then set it to *Non-Color* and use Saffron's color space conversion nodes to convert from that color space to your working space.
 
 The next step is to convert that image from its color space (sRGB) to our
 working space (Linear BT.709), so we use Saffron's
 **sRGB -> Linear BT.709 I-D65** node.
 
-Then, we apply a blur effect in the wokring space.
+Then, we apply a blur effect or do any sort of processing in the wokring space.
 
 Finally, we need to convert to our display's color space. For example, if we
 were using an sRGB display device, we would use the
@@ -185,8 +185,8 @@ is true for output sockets (e.g. **Out (Oklab)** means the output is in Oklab).
 
 # Contribution
 
-If you want to improve Saffron by adding new features and nodes, definitely feel free to
-make a pull request! This is open-source after all.
+If you want to improve Saffron by adding new features or fixing the existing
+ones, definitely feel free to make a pull request! This is open-source after all.
 
 # Donations
 
