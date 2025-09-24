@@ -31,7 +31,8 @@ This node uses Blender's built-in Denoise node at the high quality preset but wh
 ## Saffron Grade
 
 This node is all about color grading. It uses the [Oklab](https://bottosson.github.io/posts/oklab/) color space as its processing space to provide a perceptually uniform and intuitive parameter space. It uses custom-made algorithms to alter the tone and color of
-the image.
+the image. You can adjust the entire image globally or grade shadows, midtones,
+and highlights individually.
 
 ## Color Zone
 
@@ -100,8 +101,10 @@ because Saffron has its own. To do this,
 [TODO SCREENSHOT]
 
 3. When exporting images, in the save dialog window, make sure to set
-**Color Management** to *Override* and **Color Space** to *Non-Color* or
-*Generic Data*.
+**Color Management** to *Override* and **View** to *Raw* or *None*. If exporting
+to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
+*Generic Data*. Also, make sure you disable the linear to display color space
+conversion node so the EXR image has linear data.
 
 Since we've disabled Blender's color management, we need to do it ourselves.
 This has three parts:
