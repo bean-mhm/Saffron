@@ -18,13 +18,39 @@ Here's some eye candy to show you how Saffron can transform images. Whether you
 want a vintage look with film emulation or cinematic color grading, Saffron's
 got you covered!
 
-[TODO IMAGES]
+### 1. Processing linear OpenEXR images with Saffron
+
+![Comparison Image](./images/comp1a.webp)
+![Comparison Image](./images/comp1b.webp)
+
+### 2.
+
+![Comparison Image](./images/comp2a.webp)
+![Comparison Image](./images/comp2b.webp)
+
+### 3.
+
+![Comparison Image](./images/comp3a.webp)
+![Comparison Image](./images/comp3b.webp)
+
+### 4.
+
+![Comparison Image](./images/comp4a.webp)
+![Comparison Image](./images/comp4b.webp)
+
+### 5. Saffron running in the 3D viewport using Blender's Realtime Compositor
+
+![Comparison Image](./images/comp5a.jpg)
+![Comparison Image](./images/comp5b.jpg)
 
 # Color Grading & Effects
 
 ![Nodes](./images/nodes-color-grading-effects.webp)
 
-## Node: Camera Noise Reduction
+This section is the go-to for general photo editing. Let's see what each node
+does.
+
+## Camera Noise Reduction
 
 This node uses Blender's built-in Denoise node at the high quality preset but when mixing, it gives more weight to darker pixels since, in digital cameras, darker pixels contain a lot more noise than the midtones, and highlights are usually very clean.
 
@@ -86,25 +112,35 @@ explanation is provided below.
 > if you want to use Saffron without broken results, you
 > need to read and understand the following instructions.
 
+> [!WARNING]
+> Please don't create an issue or ask me questions if you haven't fully read
+> this section.
+
 In order to use Saffron, we need to disable Blender's color management system
 because Saffron has its own. To do this,
 
 1. Go to the **Color Management** tab in **Render Properties** and set
 **View Transform** to *None* or *Raw*.
 
-[TODO SCREENSHOT]
+![screenshot](./images/view-transform-raw.png)
 
 2. When loading external images with **Image** nodes in the compositor, set the
 **Color Space** property to *Non-Color* or *Generic Data*. If you already have
 **Image** nodes, change them too.
 
-[TODO SCREENSHOT]
+![screenshot](./images/image-node-non-color.png)
 
 3. When exporting images, in the save dialog window, make sure to set
-**Color Management** to *Override* and **View** to *Raw* or *None*. If exporting
-to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
+**Color Management** to *Override* and **View** to *Raw* or *None*.
+
+![screenshot](./images/export-png.png)
+
+If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
 *Generic Data*. Also, make sure you disable the linear to display color space
-conversion node so the EXR image has linear data.
+conversion node so that the EXR image stores linear data.
+
+![screenshot](./images/export-exr.png)
+![screenshot](./images/disp-view-transform-disabled.png)
 
 Since we've disabled Blender's color management, we need to do it ourselves.
 This has three parts:
@@ -149,6 +185,13 @@ or **Linear BT.2020**, all of which are supported by Saffron.
 
 > [!NOTE]
 > If you're advanced enough to use OpenEXR, you will almost surely know what color space your image is in. If not, load the image again and pay attention to the **Color Space** property of the **Image** node because Blender will try to guess the color space, which is correct most of the time. Take note of the color space, then set it to *Non-Color* and use Saffron's color space conversion nodes to convert from that color space to your working space.
+
+> [!NOTE]
+> When you render a 3D scene in Blender, the result image can be accessed
+> through a **Render Layers** node. The output of this node uses Blender's own
+> working space which is **Linear BT.709 I-D65** by default. Note that this
+> might change in the near future. They might also add a selector for the
+> working space.
 
 The next step is to convert that image from its color space (sRGB) to our
 working space (Linear BT.709), so we use Saffron's
@@ -198,28 +241,67 @@ config (or your custom config that you use in Blender).
 
 To use Saffron in your own Blender file,
 
+0. Make sure you've properly read and understood everything above.
+
 1. Go to **File > Append**.
+
+![screenshot](./images/file-append.png)
 
 2. Find Saffron's `.blend` file and double click on it.
 
+![screenshot](./images/file-view-saffron.png)
+
 3. Double click on **Scene**.
+
+![screenshot](./images/append-scene.png)
 
 4. Double click on **Saffron Compositor Nodes**.
 
+![screenshot](./images/append-scene-saffron.png)
+
 5. In the top right corner, change the current scene to **Saffron Compositor Nodes**.
 
-6. Go to the **Compositing** tab / workspace.
+![screenshot](./images/change-scene.png)
 
-7. Box select Saffron's nodes and hit Ctrl+C to copy them.
+6. Go to the **Compositing** tab / workspace and box-select Saffron's nodes, then hit Ctrl+C to copy them.
 
-8. Change back the current scene.
+![screenshot](./images/compositing-tab.jpg)
 
-9. Check "Use Nodes" if you haven't already.
+7. Change back the scene.
 
-10. Hit Ctrl+V to paste Saffron's nodes.
+![screenshot](./images/change-scene-back.png)
 
-It's a lengthy process, I admit. If you know of a better way, create an issue to
-tell me about it.
+8. Check "Use Nodes" if you haven't already.
+
+![screenshot](./images/use-nodes.png)
+
+9. Hit Ctrl+V to paste Saffron's nodes.
+
+![screenshot](./images/paste-saffron.png)
+
+10. If you have fully read the [Color Management](#important-color-management)
+section, you should know what to do, but I'm repeating myself. Set the view
+transform to Raw to disable Blender's color management.
+
+![screenshot](./images/view-transform-raw.png)
+
+11. This will make your renders look broken. That's because, as explained in
+the [Color Management](#important-color-management) section, we need to add in a
+display transform.
+
+![screenshot](./images/wrong-srgb.jpg)
+
+12. Once we add the proper view and display transforms, we get a clean image
+ready to be graded.
+
+![screenshot](./images/add-view-transform.jpg)
+
+From here, you're on your own. Try all the different nodes Saffron provides.
+Make some pretty art!
+
+> [!NOTE]
+> I admit this is a lengthy process. If you know of a better way, please create
+> an issue to tell me about it.
 
 # Contribution
 
