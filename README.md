@@ -10,9 +10,9 @@
 - ### Color Grading & Effects
 - ### Black & White
 - ### Masking
-- ### Advanced Color Processing: Gamut Compression, Highlight Reconstruction, HSV, HSL, and more.
+- ### Advanced Color Processing
 - ### Color Space Conversions: Linear, Displays, ACES, Oklab.
-- ### View Transforms (Tone Mapping): [flim](https://github.com/bean-mhm/flim), Khronos PBR Neutral, ACES, and more.
+- ### View Transforms: [flim](https://github.com/bean-mhm/flim), Khronos PBR Neutral, ACES, and more.
 
 Here's some eye candy to show you how Saffron can transform images. Whether you
 want a vintage look with film emulation or cinematic color grading, Saffron's
