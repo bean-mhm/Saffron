@@ -83,10 +83,13 @@ methods.
 
 ![Nodes](./images/nodes-masking.webp)
 
-Masking is a technique used to blend two images or values using different
-blending amounts at different positions. For example, with a
-**Radial Gradient Mask**, you can create a mask that covers the face of the
-subject and only brighten that part of the image.
+Masking is a technique used to vary the strength of an effect at different
+positions on the image. For example, with a **Radial Gradient Mask**, we can
+create a mask that covers the subject's face and only brighten that part.
+
+![screenshot](./images/masking-mask.jpg)
+
+![screenshot](./images/masking-split.jpg)
 
 With Saffron's masking nodes you can create and combine masks using different
 methods.
