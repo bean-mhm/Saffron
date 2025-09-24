@@ -78,7 +78,7 @@ techniques. Feel free to experiment with them.
 These nodes let you convert between different color spaces. A more detailed
 explanation is provided below.
 
-# Color Management (IMPORTANT)
+# [IMPORTANT] Color Management
 
 > [!IMPORTANT]
 > Humans are naturally lazy to read long pieces of text (including myself), but
