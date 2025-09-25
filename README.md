@@ -4,7 +4,7 @@
 
 # 🪻 Saffron
 
-![Saffron's Compositor Nodes](./images/saffron-nodes.webp)
+![Saffron's Compositor Nodes](./images/saffron-nodes-lowres.webp)
 
 **Saffron** is a large collection of compositor nodes for [Blender](https://blender.org/) providing many great features in the following categories:
 - ### Color Grading & Effects
@@ -78,7 +78,7 @@ to select the sky) and adjust the tone of that part.
 This node provides artistic image editing effects including
 **Texture & Clarity**, **Vignette**, **Halation**, and **Film Grain**. It too
 uses [Oklab](https://bottosson.github.io/posts/oklab/) as its processing space
-and is made of custom-made algorithms.
+and is made of custom algorithms.
 
 ![screenshot](./images/saffron-effects-before.webp)
 ![screenshot](./images/saffron-effects-after.webp)
@@ -127,7 +127,8 @@ explanation is provided below.
 > [!IMPORTANT]
 > Humans are naturally lazy to read long pieces of text (including myself), but
 > if you want to use Saffron without broken results, you
-> need to read and understand the following instructions.
+> need to read and understand the following instructions. You might even need to
+> read it several times.
 
 > [!WARNING]
 > Please don't create an issue or ask me questions if you haven't fully read
@@ -153,8 +154,8 @@ because Saffron has its own. To do this,
 ![screenshot](./images/export-png.png)
 
 If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
-*Generic Data*. Also, make sure you disable the linear to display color space
-conversion node so that the EXR image stores linear data.
+*Generic Data*. Also, make sure you disable linear-to-display color space
+conversion so that the EXR image stores linear data.
 
 ![screenshot](./images/export-exr.png)
 ![screenshot](./images/disp-view-transform-disabled.png)
@@ -172,19 +173,7 @@ color space to the working color space.
 
 2. Do your image processing in the working color space.
 
-3. Optionally apply a **View Transform** (so-called "Tone Mapping") to make sure
-your colors are not exceeding 100% brightness level which introduces
-overexposed/clipped areas in bright spots. A good option is
-[flim](https://github.com/bean-mhm/flim) which is a filmic color transform I've
-made. Saffron has an implementation for flim in the
-**Color Space Conversions: View Transforms** section.
-
-> [!NOTE]
-> View transforms don't modify the color space, they just make your colors reach
-> 100% in a smoother and more visually pleasing way. The output is still in the
-> working color space.
-
-4. Finally, convert from the working space to a display color space (e.g. sRGB, Display P3, etc.) that
+3. Finally, convert from the working space to a display color space (e.g. sRGB, Display P3, etc.) that
 matches your display device. If you're unsure, look it up based on your display
 device.
 
@@ -192,8 +181,7 @@ device.
 
 Here's an example scenario to help you wrap your head around color management.
 Let's say our working space is **Linear BT.709 I-D65** (also called Linear sRGB
-or Linear Rec.709), and we load an image named `cat.jpeg`.
-
+or Linear Rec.709), and we load an image named `plants.jpg`.
 
 When working with a PNG or JPEG image, there's a 99.999% chance it's in the sRGB
 color space. Linear image formats like OpenEXR on the other hand, usually use
@@ -210,15 +198,37 @@ or **Linear BT.2020**, all of which are supported by Saffron.
 > might change in the near future. They might also add a selector for the
 > working space.
 
-The next step is to convert that image from its color space (sRGB) to our
-working space (Linear BT.709), so we use Saffron's
-**sRGB -> Linear BT.709 I-D65** node.
+The next step is to set the **Color Space** to **Non-Color** and convert the
+image from its color space (sRGB) to our working space (Linear BT.709) using
+Saffron's **sRGB -> Linear BT.709 I-D65** node.
 
-Then, we apply a blur effect or do any sort of processing in the wokring space.
+![screenshot](./images/load-jpg-image.webp)
 
-Finally, we need to convert to our display's color space. For example, if we
+Now we need to convert to our display's color space. For example, if we
 were using an sRGB display device, we would use the
 **Linear BT.709 I-D65 -> sRGB** node.
+
+![screenshot](./images/apply-display-transform.webp)
+
+Finally, any processing happens before the display transform while we're still
+in the working color space. Here's a blur effect, for example.
+
+![screenshot](./images/process-in-working-space.webp)
+
+## View Transforms
+
+Right before the **Display Transform**, we can optionally apply a
+**View Transform** (so-called "Tone Mapping") to make sure our colors are not
+exceeding 100% brightness level because that introduces overexposed/clipped
+pixels in bright areas. A good option is
+[flim](https://github.com/bean-mhm/flim), a filmic color transform I've made.
+Of course, Saffron has an implementation for it!
+
+![screenshot](./images/add-flim.webp)
+
+View transforms don't modify the color space, they just make your colors reach
+100% in a smoother and more visually pleasing way. The output is still in the
+working color space, which is why we still need the **Display Transform**.
 
 ## The Reference Space
 
@@ -233,6 +243,11 @@ a color space B, we simply convert from A to the reference and then from the
 reference to B. Saffron uses **Linear CIE-XYZ I-D65** as its reference color
 space.
 
+In the following example we convert from **Linear BT.709** to **Oklab** using
+this method.
+
+![screenshot](./images/709-to-oklab.webp)
+
 Note that **View Transforms** are one-sided and they expect the input to be in a
 linear RGB color space. Also, since **Display Transforms** are typically based
 on a single linear color space (you wouldn't normally convert from Linear BT.709
@@ -246,6 +261,8 @@ this means they expect the input to be in a linear RGB color space. **In (Ref)**
 means the input must be in the reference color space, and so forth. The same
 is true for output sockets (e.g. **Out (Oklab)** means the output is in Oklab).
 
+![screenshot](./images/input-socket.webp)
+
 ## What If...
 
 What if you need a conversion for a color space that's not supported by Saffron?
@@ -253,6 +270,10 @@ Don't worry, you can use Blender's **Convert Colorspace** node in the compositor
 the same way you use Saffron's conversion nodes... as long as there's at least
 one common color space that exists in both Saffron and Blender's OpenColorIO
 config (or your custom config that you use in Blender).
+
+Here we apply the AgX view/display (combined) transform using this node:
+
+![screenshot](./images/blender-convert-colorspace.webp)
 
 # Adding Saffron
 
