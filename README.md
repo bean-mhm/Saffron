@@ -149,13 +149,15 @@ because Saffron has its own. To do this,
 ![screenshot](./images/image-node-non-color.png)
 
 3. When exporting images, in the save dialog window, make sure to set
-**Color Management** to *Override* and **View** to *Raw* or *None*.
+**Color Management** to *Override* and **View** to *Raw* or *None*. Obviously,
+**Exposure** and **Gamma** need to be at their default values of 0 and 1,
+respectively.
 
 ![screenshot](./images/export-png.png)
 
 If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
-*Generic Data*. Also, make sure you disable linear-to-display color space
-conversion so that the EXR image stores linear data.
+*Generic Data*. Also, make sure you disable your **Display Transform** (further
+explanation below) so that the EXR image stores linear data.
 
 ![screenshot](./images/export-exr.png)
 ![screenshot](./images/disp-view-transform-disabled.png)
@@ -163,7 +165,7 @@ conversion so that the EXR image stores linear data.
 Since we've disabled Blender's color management, we need to do it ourselves.
 This has three parts:
 1. Loading images
-2. The working color space
+2. Processing in the working color space
 3. Display/View transforms
 
 To put it simply:
@@ -227,8 +229,9 @@ Of course, Saffron has an implementation for it!
 ![screenshot](./images/add-flim.webp)
 
 View transforms don't modify the color space, they just make your colors reach
-100% in a smoother and more visually pleasing way. The output is still in the
-working color space, which is why we still need the **Display Transform**.
+100% in a smoother and more visually pleasing way instead of applying a harsh
+cut-off. The output is still in the working color space, which is why we still
+need a **Display Transform** at the end.
 
 ## The Reference Space
 
