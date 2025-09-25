@@ -284,60 +284,62 @@ To use Saffron in your own Blender file,
 
 0. Make sure you've properly read and understood everything above.
 
-1. Go to **File > Append**.
+1. Download Saffron's `.blend` file at the top of this page.
+
+2. In your own `.blend` file, go to **File > Append**.
 
 ![screenshot](./images/file-append.png)
 
-2. Find Saffron's `.blend` file and double click on it.
+3. Find Saffron's `.blend` file and double click on it.
 
 ![screenshot](./images/file-view-saffron.png)
 
-3. Double click on **Scene**.
+4. Double click on **Scene**.
 
 ![screenshot](./images/append-scene.png)
 
-4. Double click on **Saffron Compositor Nodes**.
+5. Double click on **Saffron Compositor Nodes**.
 
 ![screenshot](./images/append-scene-saffron.png)
 
-5. In the top right corner, change the current scene to **Saffron Compositor Nodes**.
+6. In the top right corner, change the current scene to **Saffron Compositor Nodes**.
 
 ![screenshot](./images/change-scene.png)
 
-6. Go to the **Compositing** tab / workspace and box-select Saffron's nodes, then hit Ctrl+C to copy them.
+7. Go to the **Compositing** tab / workspace and box-select Saffron's nodes, then hit Ctrl+C to copy them.
 
 ![screenshot](./images/compositing-tab.jpg)
 
-7. Change back the scene.
+8. Change back the scene.
 
 ![screenshot](./images/change-scene-back.png)
 
-8. Check "Use Nodes" if you haven't already.
+9. Check "Use Nodes" if you haven't already.
 
 ![screenshot](./images/use-nodes.png)
 
-9. Hit Ctrl+V to paste Saffron's nodes.
+10. Hit Ctrl+V to paste Saffron's nodes.
 
 ![screenshot](./images/paste-saffron.png)
 
-10. If you have fully read the [Color Management](#important-color-management)
+11. If you have fully read the [Color Management](#important-color-management)
 section, you should know what to do, but I'm repeating myself. Set the view
 transform to Raw to disable Blender's color management.
 
 ![screenshot](./images/view-transform-raw.png)
 
-11. This will make your renders look broken. That's because, as explained in
+12. This will make your renders look broken. That's because, as explained in
 the [Color Management](#important-color-management) section, we need to add in a
 display transform.
 
 ![screenshot](./images/wrong-srgb.jpg)
 
-12. Once we add the proper view and display transforms, we get a clean image
+13. Once we add the proper view and display transforms, we get a clean image
 ready to be graded.
 
 ![screenshot](./images/add-view-transform.jpg)
 
-13. From here, you're on your own. Try all the different nodes Saffron provides.
+14. From here, you're on your own. Try all the different nodes Saffron provides.
 Make some pretty art!
 
 # Contribution
