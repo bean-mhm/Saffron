@@ -161,9 +161,9 @@ color space to the working color space.
 
 2. Do your image processing in the working color space.
 
-3. Finally, convert from the working space to a display color space (e.g. sRGB, Display P3, etc.) that
-matches your display device. If you're unsure, look it up based on your display
-device.
+3. Finally, convert from the working space to a display color space that matches your display device (e.g. sRGB, Display P3, etc.). If you're unsure, look it up based on your display device.
+
+4. If you're exporting for the web and want the highest compatibility, use Linear BT.709 as your working space and sRGB as your display transform. Of course, if your display uses something else, like Display P3, convert from sRGB to Display P3 at the very end so that the image looks correct on your Display P3 device, but make sure to disable this conversion when you're exporting.
 
 ## Example
 
