@@ -148,20 +148,6 @@ because Saffron has its own. To do this,
 
 ![screenshot](./images/image-node-non-color.png)
 
-3. When exporting images, in the save dialog window, make sure to set
-**Color Management** to *Override* and **View** to *Raw* or *None*. Obviously,
-**Exposure** and **Gamma** need to be at their default values of 0 and 1,
-respectively.
-
-![screenshot](./images/export-png.png)
-
-If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
-*Generic Data*. Also, make sure you disable your **Display Transform** (further
-explanation below) so that the EXR image stores linear data.
-
-![screenshot](./images/export-exr.png)
-![screenshot](./images/disp-view-transform-disabled.png)
-
 Since we've disabled Blender's color management, we need to do it ourselves.
 This has three parts:
 1. Loading images
@@ -277,6 +263,22 @@ config (or your custom config that you use in Blender).
 Here we apply the AgX view/display (combined) transform using this node:
 
 ![screenshot](./images/blender-convert-colorspace.webp)
+
+## Exporting Images
+
+When exporting images, in the save dialog window, make sure to set
+**Color Management** to *Override* and **View** to *Raw* or *None*. Obviously,
+**Exposure** and **Gamma** need to be at their default values of 0 and 1,
+respectively.
+
+![screenshot](./images/export-png.png)
+
+If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
+*Generic Data*. Also, make sure you disable your **Display Transform** (further
+explanation below) so that the EXR image stores linear data.
+
+![screenshot](./images/export-exr.png)
+![screenshot](./images/disp-view-transform-disabled.png)
 
 # Adding Saffron
 
