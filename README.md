@@ -273,9 +273,9 @@ respectively.
 
 ![screenshot](./images/export-png.png)
 
-If exporting to a linear format like OpenEXR, set **Color Space** to *Non-Color* or
-*Generic Data*. Also, make sure you disable your **Display Transform** (further
-explanation below) so that the EXR image stores linear data.
+If exporting to a linear format like OpenEXR, set **Color Space** to
+*Non-Color*. Also, make sure you've disabled your **Display Transform** so that
+the EXR image stores linear data.
 
 ![screenshot](./images/export-exr.png)
 ![screenshot](./images/disp-view-transform-disabled.png)
