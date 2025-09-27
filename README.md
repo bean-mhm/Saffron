@@ -260,12 +260,9 @@ Here we apply the AgX view/display (combined) transform using this node:
 
 ![screenshot](./images/blender-convert-colorspace.webp)
 
-## Exporting Images
+## Exporting
 
-When exporting images, in the save dialog window, make sure to set
-**Color Management** to *Override* and **View** to *Raw* or *None*. Obviously,
-**Exposure** and **Gamma** need to be at their default values of 0 and 1,
-respectively.
+When exporting images or videos, set **Color Management** to *Override* and **View** to *Raw* or *None*. Obviously, **Exposure** and **Gamma** need to be at their default values of 0 and 1, respectively.
 
 ![screenshot](./images/export-png.png)
 
@@ -347,10 +344,7 @@ ones, definitely feel free to make a pull request! This is open-source after all
 
 # Donations
 
-I made Saffron free and open-source because knowledge shouldn't be behind a
-pay wall and I understand that not everyone can afford to pay tens of dollars
-for a simple node pack. However, if you think the project is deserving, feel free to support me at [Ko-fi](https://ko-fi.com/bean_mhm). Your
-support is hugely appreciated!
+If you think the project is deserving, feel free to support me at [Ko-fi](https://ko-fi.com/bean_mhm). Your support is hugely appreciated!
 
 # Useful Links
 
