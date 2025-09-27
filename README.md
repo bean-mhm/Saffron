@@ -163,8 +163,6 @@ color space to the working color space.
 
 3. Finally, convert from the working space to a display color space that matches your display device (e.g. sRGB, Display P3, etc.). If you're unsure, look it up based on your display device.
 
-4. If you're exporting for the web and want the highest compatibility, use Linear BT.709 as your working space and sRGB as your display transform. Of course, if your display uses something else, like Display P3, convert from sRGB to Display P3 at the very end so that the image looks correct on your Display P3 device, but make sure to disable this conversion when you're exporting.
-
 ## Example
 
 Here's an example scenario to help you wrap your head around color management.
@@ -272,6 +270,18 @@ the EXR image stores linear data.
 
 ![screenshot](./images/export-exr.png)
 ![screenshot](./images/disp-view-transform-disabled.png)
+
+In general, the exported file will use the color space from your last conversion
+node. If it was a **X -> sRGB** conversion, the exported file will be in sRGB,
+and so on.
+
+> [!TIP]
+> If you're exporting for the web and want the highest compatibility, use
+> **Linear BT.709 I-D65** as your working space and **sRGB** as your Display
+> Transform. Of course, if your display uses something else (like Display P3),
+> add a conversion from sRGB to your display's color space at the very end so
+> that the image looks correct on your display when you're editing, but make
+> sure to disable this conversion when exporting.
 
 # Adding Saffron
 
