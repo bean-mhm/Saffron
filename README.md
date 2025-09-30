@@ -82,7 +82,7 @@ its processing space and is made of custom algorithms.
 
 ![screenshot](./images/saffron-effects-before.webp)
 ![screenshot](./images/saffron-effects-after.webp)
-![screenshot](./images/saffron-effects.jpg)
+![screenshot](./images/saffron-effects.webp)
 
 # Black & White
 
