@@ -62,7 +62,7 @@ and highlights individually.
 
 ![screenshot](./images/saffron-grade-before.webp)
 ![screenshot](./images/saffron-grade-after.webp)
-![screenshot](./images/saffron-grade.png)
+![screenshot](./images/saffron-grade.webp)
 
 ## Color Zone
 
@@ -76,9 +76,9 @@ to select the sky) and adjust the tone of that part.
 ## Saffron Effects
 
 This node provides artistic image editing effects including
-**Texture & Clarity**, **Vignette**, **Halation**, and **Film Grain**. It too
-uses [Oklab](https://bottosson.github.io/posts/oklab/) as its processing space
-and is made of custom algorithms.
+**Texture & Clarity**, **Dehaze**, **Vignette**, **Halation**, and
+**Film Grain**. It too uses [Oklab](https://bottosson.github.io/posts/oklab/) as
+its processing space and is made of custom algorithms.
 
 ![screenshot](./images/saffron-effects-before.webp)
 ![screenshot](./images/saffron-effects-after.webp)
