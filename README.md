@@ -4,7 +4,7 @@
 
 # 🪻 Saffron
 
-![Saffron's Compositor Nodes](./images/saffron-nodes-lowres.webp)
+![Saffron's Compositor Nodes](./images/saffron-nodes.webp)
 
 **Saffron** is a large collection of compositor nodes for [Blender](https://blender.org/) providing many great features in the following categories:
 - ### Color Grading & Effects
