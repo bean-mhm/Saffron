@@ -175,7 +175,7 @@ color space. Linear image formats like OpenEXR on the other hand, usually use
 or **Linear BT.2020**, all of which are supported by Saffron.
 
 > [!TIP]
-> If you're advanced enough to use OpenEXR, you will almost surely know what color space your image is in. If not, load the image again and pay attention to the **Color Space** property of the **Image** node because Blender will try to guess the color space, which is correct most of the time. Take note of the color space, then set it to *Non-Color* and use Saffron's color space conversion nodes to convert from that color space to your working space.
+> If you're advanced enough to use OpenEXR, you will almost surely know what color space your image is in. If not, fully reload the image (delete the image node, click **File > Clean Up > Purge Unused Data**, re-add the image node and load the image) and pay attention to the **Color Space** property of the **Image** node because Blender will try to guess the color space, which is correct most of the time. Take note of the color space, then set it to *Non-Color* and use Saffron's color space conversion nodes to convert from that color space to your working space.
 
 > [!TIP]
 > If you’ve rendered a 3D scene, the resulting image can be accessed through a **Render Layers** node. The output of this node uses Blender's own working space which is **Linear BT.709** by default but it might change in future versions of Blender. They may also add a selector for the working space.
