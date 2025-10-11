@@ -50,10 +50,6 @@ got you covered!
 This section is the go-to for general photo editing. Let's see what each node
 does.
 
-## Camera Noise Reduction
-
-This node uses Blender's built-in Denoise node at the high quality preset but when mixing, it gives more weight to darker pixels since, in digital cameras, darker pixels contain a lot more noise than the midtones, and highlights are usually very clean.
-
 ## Saffron Grade
 
 This node is all about color grading. It uses the [Oklab](https://bottosson.github.io/posts/oklab/) color space as its processing space to provide a perceptually uniform and intuitive parameter space. It uses custom-made algorithms to alter the tone and color of
