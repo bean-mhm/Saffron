@@ -347,6 +347,14 @@ ready to be graded.
 14. From here, you're on your own. Try all the different nodes Saffron provides.
 Make some pretty art!
 
+# Something To Consider
+
+If the compositor is set to GPU mode, make sure that **Precision** is set to
+*Full* to avoid 16-bit floating-point precision issues in effects like film
+grain.
+
+![screenshot](./images/compositor-gpu-precision.png)
+
 # Contribution
 
 If you want to improve Saffron by adding new features or fixing the existing
