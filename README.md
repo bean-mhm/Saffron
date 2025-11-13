@@ -1,8 +1,18 @@
 <div align="center">
+  <a href="https://github.com/bean-mhm/Saffron">
+    <img src="images/logo.png" alt="Saffron logo" width="120" height="120">
+  </a>
+  <h1 align="center">Saffron</h1>
+  <p align="center">Your photos deserve it!</p>
+</div>
+
+<br/>
+
+<div align="center">
 <a href='https://ko-fi.com/E1E81LFRKY' target='_blank'><img height='42' style='border:0px;height:42px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 </div>
 
-# 🪻 Saffron
+<br>
 
 ![Saffron's Compositor Nodes](./images/saffron-nodes.webp)
 
