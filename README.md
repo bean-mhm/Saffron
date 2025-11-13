@@ -6,8 +6,6 @@
   <p align="center">Your photos deserve it!</p>
 </div>
 
-<div><br/></div>
-
 <div align="center">
 <a href='https://ko-fi.com/E1E81LFRKY' target='_blank'><img height='42' style='border:0px;height:42px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 </div>
@@ -378,3 +376,4 @@ If you think the project is deserving, feel free to support me at [Ko-fi](https:
 - [Test Image Collection 1 - Troy Sobotka](https://github.com/sobotka/Testing_Imagery)
 - [Test Image Collection 2 - Troy Sobotka](https://github.com/sobotka/images)
 - [PolyHaven, HDRIs](https://polyhaven.com/hdris)
+
